@@ -850,10 +850,12 @@
 
     <!-- Project 1: Sport News -->
     <div class="project-card reveal" style="animation-delay:0.1s">
-      <div class="project-preview">
-        <div class="preview-placeholder">
+      <div class="project-preview" onclick="document.getElementById('img-upload-1').click()" style="cursor:pointer" title="Click to add screenshot">
+        <img id="img-preview-1" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none;position:absolute;inset:0;z-index:3;">
+        <input type="file" id="img-upload-1" accept="image/*" style="display:none" onchange="loadImg(this,'img-preview-1','placeholder-1')">
+        <div class="preview-placeholder" id="placeholder-1">
           <div class="preview-emoji">🏆</div>
-          <div class="preview-text">Sport News</div>
+          <div class="preview-text">Click to add screenshot</div>
         </div>
         <div class="preview-overlay"></div>
       </div>
@@ -878,10 +880,12 @@
 
     <!-- Project 2: Restaurant -->
     <div class="project-card reveal" style="animation-delay:0.2s">
-      <div class="project-preview">
-        <div class="preview-placeholder">
+      <div class="project-preview" onclick="document.getElementById('img-upload-2').click()" style="cursor:pointer" title="Click to add screenshot">
+        <img id="img-preview-2" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none;position:absolute;inset:0;z-index:3;">
+        <input type="file" id="img-upload-2" accept="image/*" style="display:none" onchange="loadImg(this,'img-preview-2','placeholder-2')">
+        <div class="preview-placeholder" id="placeholder-2">
           <div class="preview-emoji">🍽</div>
-          <div class="preview-text">Restaurant</div>
+          <div class="preview-text">Click to add screenshot</div>
         </div>
         <div class="preview-overlay"></div>
       </div>
@@ -906,10 +910,12 @@
 
     <!-- Project 3: Robots -->
     <div class="project-card reveal" style="animation-delay:0.3s">
-      <div class="project-preview">
-        <div class="preview-placeholder">
+      <div class="project-preview" onclick="document.getElementById('img-upload-3').click()" style="cursor:pointer" title="Click to add screenshot">
+        <img id="img-preview-3" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none;position:absolute;inset:0;z-index:3;">
+        <input type="file" id="img-upload-3" accept="image/*" style="display:none" onchange="loadImg(this,'img-preview-3','placeholder-3')">
+        <div class="preview-placeholder" id="placeholder-3">
           <div class="preview-emoji">🤖</div>
-          <div class="preview-text">Robots</div>
+          <div class="preview-text">Click to add screenshot</div>
         </div>
         <div class="preview-overlay"></div>
       </div>
@@ -935,6 +941,20 @@
   </div>
 </section>
 
+<script>
+function loadImg(input, previewId, placeholderId) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = document.getElementById(previewId);
+    img.src = e.target.result;
+    img.style.display = 'block';
+    document.getElementById(placeholderId).style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+</script>
 <!-- ABOUT -->
 <section id="about">
   <div class="about-visual reveal">
